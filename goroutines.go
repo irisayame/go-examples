@@ -3,19 +3,19 @@ package main
 import "fmt"
 
 func f(from string) {
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 5; i++ {
 		fmt.Println(from, ":", i)
 	}
 }
 
 func main() {
-	//	f("direct")
+	f("direct")
 
 	go f("goroutine")
-	go f("goroutine2")
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
+
 	var input string
 	fmt.Scanln(&input)
 	fmt.Println("done")
