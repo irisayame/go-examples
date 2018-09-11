@@ -1,6 +1,48 @@
 package main
 
 import "fmt"
+import "strings"
+import "math/rand"
+import "sort"
+
+func check_expand_policy() {
+	fmt.Println("Check slice resize policy")
+
+	aslice := make([]int, 0, 5)
+	c := cap(aslice)
+	fmt.Println("initial size: ", c)
+
+	for i := 0; i < 25; i++ {
+		aslice = append(aslice, i)
+
+		if cap(aslice) != c {
+			c = cap(aslice)
+			fmt.Println("resize to: ", c)
+		}
+	}
+}
+
+func check_string_slice() {
+	fmt.Println("Check string slice")
+	haystack := "the spice must flow"
+	idx := strings.Index(haystack[5:], " ")
+	fmt.Println("index of second blank of ", haystack, ": ", idx+5)
+}
+
+func check_copy_slice() {
+	fmt.Println("Check copy slice to slice")
+	numbers := make([]int, 10)
+	for i := 0; i < 10; i++ {
+		numbers[i] = int(rand.Int31n(1000))
+	}
+	sort.Ints(numbers)
+
+	worst := make([]int, 5)
+	copy(worst, numbers[1:5])
+	fmt.Println("2nd to 4th smallest number of")
+	fmt.Println(numbers[:10])
+	fmt.Println(worst)
+}
 
 func main() {
 
@@ -44,4 +86,8 @@ func main() {
 		}
 	}
 	fmt.Println("2d: ", twoD)
+
+	check_expand_policy()
+	check_string_slice()
+	check_copy_slice()
 }

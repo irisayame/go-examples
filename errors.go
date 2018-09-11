@@ -1,6 +1,7 @@
 package main
 
 import "errors"
+import "io"
 import "fmt"
 
 func f1(arg int) (int, error) {
@@ -26,6 +27,14 @@ func f2(arg int) (int, error) {
 	return arg + 3, nil
 }
 
+func check_eof_error() {
+	var input int
+	_, err := fmt.Scan(&input)
+	if err == io.EOF {
+		fmt.Println("No more input!")
+	}
+}
+
 func main() {
 	for _, i := range []int{7, 42} {
 		if r, e := f1(i); e != nil {
@@ -48,4 +57,6 @@ func main() {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.prob)
 	}
+
+	check_eof_error()
 }
