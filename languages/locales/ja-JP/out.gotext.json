@@ -1,0 +1,25 @@
+{
+    "language": "ja-JP",
+    "messages": [
+        {
+            "id": "Hello world!",
+            "message": "Hello world!",
+            "translation": "こんにちは世界!"
+        },
+        {
+            "id": "There are {Booknum} books in the library.",
+            "message": "There are {Booknum} books in the library.",
+            "translation": "図書室には{Booknum}冊の本があります。",
+            "placeholders": [
+                {
+                    "id": "Booknum",
+                    "string": "%[1]v",
+                    "type": "int",
+                    "underlyingType": "int",
+                    "argNum": 1,
+                    "expr": "booknum"
+                }
+            ]
+        }
+    ]
+}

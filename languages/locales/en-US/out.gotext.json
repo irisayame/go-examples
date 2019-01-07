@@ -1,0 +1,29 @@
+{
+    "language": "en-US",
+    "messages": [
+        {
+            "id": "Hello world!",
+            "message": "Hello world!",
+            "translation": "Hello world!",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "There are {Booknum} books in the library.",
+            "message": "There are {Booknum} books in the library.",
+            "translation": "There are {Booknum} books in the library.",
+            "translatorComment": "Copied from source.",
+            "placeholders": [
+                {
+                    "id": "Booknum",
+                    "string": "%[1]v",
+                    "type": "int",
+                    "underlyingType": "int",
+                    "argNum": 1,
+                    "expr": "booknum"
+                }
+            ],
+            "fuzzy": true
+        }
+    ]
+}
